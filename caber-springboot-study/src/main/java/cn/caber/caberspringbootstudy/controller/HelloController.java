@@ -1,29 +1,41 @@
 package cn.caber.caberspringbootstudy.controller;
 
-
+import cn.caber.caberspringbootstudy.component.Student;
+import cn.caber.caberspringbootstudy.domain.People;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/a")
 public class HelloController {
 
+    @Value("${people.id}")
+    private String id;
+
+    @Value("${people.name}")
+    private String name;
+
+    @Value("${people.age}")
+    private int age;
+
     @Autowired
-    private JedisConnectionFactory factory;
+    private Student s;
 
-    @RequestMapping("/a")
-    public String printPeople(){
-        RedisConnection connection = factory.getConnection();
-        connection.setCommands().sAdd("name".getBytes(),"lisi".getBytes());
-        byte[] bytes = connection.get("name".getBytes());
-        String s = new String(bytes);
-        return s;
 
+
+    @RequestMapping("/getPeople")
+    public String getPeople(){
+
+        return new People(id,name,age).toString();
     }
 
+    @RequestMapping("/b")
+    public String getStudent(){
+
+        return s.toString();
+    }
 
 
 }

@@ -4,7 +4,6 @@ import cn.caber.caberspringbootstudy.domain.People;
 
 import java.util.List;
 
-public interface HelloService {
-    String sayHello();
-
+public interface PeopleService {
+    List<People> findAll();
 }

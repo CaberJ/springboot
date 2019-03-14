@@ -1,26 +1,31 @@
-package cn.caber.caberspringbootstudy.domain;
+package cn.caber.caberspringbootstudy.component;
 
-import java.io.Serializable;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
-public class People implements Serializable {
-    private String id;
+@Component
+@ConfigurationProperties(prefix = "student")
+@PropertySource(value = "classpath:/student.properties")
+public class Student {
+    private int id;
     private String name;
     private int age;
 
-    public People() {
+    public Student() {
     }
 
-    public People(String id, String name, int age) {
+    public Student(int id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -42,8 +47,8 @@ public class People implements Serializable {
 
     @Override
     public String toString() {
-        return "People{" +
-                "id='" + id + '\'' +
+        return "Student{" +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';

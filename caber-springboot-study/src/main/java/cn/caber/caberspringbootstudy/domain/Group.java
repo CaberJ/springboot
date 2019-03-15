@@ -1,9 +1,9 @@
 package cn.caber.caberspringbootstudy.domain;
 
+import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
-public class Group {
+public class Group implements Serializable {
     private int id;
     private int count;
     private List<People> peoples;

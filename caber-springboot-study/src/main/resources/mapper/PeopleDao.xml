@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-    <mapper namespace="cn.caber.caberspringbootstudy.dao.PeopleDao">
-        <select id="findAll" resultType="people">
-          select * from people
-        </select>
-    </mapper>
+<mapper namespace="cn.caber.caberspringbootstudy.dao.PeopleDao">
+    <select id="findAll" resultType="people">
+      select * from people
+    </select>
+
+    <select id="findPeopleById" resultType="people" parameterType="String">
+      select * from people where id = #{uid}
+    </select>
+
+    <!-- #{}中内容的写法：    由于我们保存方法的参数是 一个 User 对象，此处要写 User 对象中的属性名称。-->
+    <insert id="insertOne" parameterType="People">
+
+        <!-- 配置保存时获取插入的 id -->
+        <selectKey keyColumn="id" keyProperty="id" resultType="String">
+            select last_insert_id();
+        </selectKey>
+        insert into people(id,name,age) values(#{id},#{name},#{age})
+    </insert>
+
+    <update id="updatePeople" parameterType="People">
+      update people set name=#{name},age=#{age}where id=#{id}
+    </update>
+
+    <delete id="deletePeople" parameterType="String">
+      delete from people where id = #{id}
+     </delete>
+
+    <select id="findByName" resultType="People" parameterType="String">
+     select * from people where name like #{name}
+    </select>
+
+    <select id="findByName1" parameterType="String" resultType="People">
+       select * from people where name like '%${value}%'
+    </select>
+
+
+</mapper>

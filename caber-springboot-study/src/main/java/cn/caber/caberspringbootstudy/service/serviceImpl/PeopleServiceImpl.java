@@ -36,9 +36,42 @@ public class PeopleServiceImpl implements PeopleService {
                 redisTemplate.boundListOps("peoples").leftPush(people);
             }
         } else {
-            peoples.add((People) redisTemplate.opsForList().rightPop("peoples"));
+            for (Long i = 0L; i < size; i++) {
+                peoples.add((People) redisTemplate.opsForList().rightPop("peoples"));
+            }
+
         }
 
         return peoples;
+    }
+
+    @Override
+    public People findPeopleById(String id) {
+        return peopleDao.findPeopleById(id);
+    }
+
+    @Override
+    public void insertOne(People people) {
+        peopleDao.insertOne(people);
+    }
+
+    @Override
+    public void updatePeople(People people) {
+        peopleDao.updatePeople(people);
+    }
+
+    @Override
+    public void deletePeople(String id) {
+        peopleDao.deletePeople(id);
+    }
+
+    @Override
+    public List<People> findByName(String name) {
+        return peopleDao.findByName(name);
+    }
+
+    @Override
+    public List<People> findByName1(String name) {
+        return peopleDao.findByName1(name);
     }
 }

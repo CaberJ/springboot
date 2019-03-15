@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 @ConfigurationProperties(prefix = "people")//这样使用必须提供set方法
-public class PeopelController {
+public class DemoController {
 
     private String id;
     private String name;
@@ -48,9 +48,9 @@ public class PeopelController {
 
     @RequestMapping("/b")
     public List<People> b() {
-
         List<People> peoples =peopleService.findAll();
-
         return peoples;
     }
+
+
 }

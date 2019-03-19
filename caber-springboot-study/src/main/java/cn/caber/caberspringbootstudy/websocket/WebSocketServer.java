@@ -15,12 +15,16 @@ import java.util.concurrent.CopyOnWriteArraySet;
 @Component
 public class WebSocketServer {
     static Log log= LogFactory.getLog(WebSocketServer.class);
+
     //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
     private static int onlineCount = 0;
+
     //concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
     private static CopyOnWriteArraySet<WebSocketServer> webSocketSet = new CopyOnWriteArraySet<WebSocketServer>();
+
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
+
     //接收sid
     private String sid="";
 
@@ -32,10 +36,11 @@ public class WebSocketServer {
         this.session = session;
         webSocketSet.add(this); //加入set中
         addOnlineCount(); //在线数加1
-        log.info("有新窗口开始监听:"+sid+",当前在线人数为" + getOnlineCount());
+        log.info(sid+"上线了,当前在线人数为" + getOnlineCount());
         this.sid=sid;
         try {
-            sendMessage("连接成功");
+            sendInfo(sid+"上线了,当前在线人数为" + getOnlineCount(),null);
+            sendInfo(sid+":你已经上线",sid);
         } catch (IOException e) {
             log.error("websocket IO异常");
         }

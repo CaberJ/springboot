@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.caber.caberspringbootstudy.dao.PeopleDao">
+
     <select id="findAll" resultType="people">
       select * from people
     </select>
@@ -16,7 +17,7 @@
         <selectKey keyColumn="id" keyProperty="id" resultType="String">
             select last_insert_id();
         </selectKey>
-        insert into people(id,name,age) values(#{id},#{name},#{age})
+        insert into people(id,name,age,gid) values(#{id},#{name},#{age},#{gid})
     </insert>
 
     <update id="updatePeople" parameterType="People">
@@ -35,5 +36,8 @@
        select * from people where name like '%${value}%'
     </select>
 
+    <select id="findByGid" parameterType="String" resultType="People">
+        select * from people where gid = #{gid}
+    </select>
 
 </mapper>

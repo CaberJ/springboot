@@ -21,6 +21,9 @@ public class HelloController {
     @Value("${people.age}")
     private int age;
 
+    @Value("${people.age}")
+    private String gid;
+
     @Autowired
     private Student s;
 
@@ -30,7 +33,7 @@ public class HelloController {
     @RequestMapping("/getPeople")
     public String getPeople(){
 
-        return new People(id,name,age).toString();
+        return new People(id,name,age,gid).toString();
     }
 
     @RequestMapping("/aa")

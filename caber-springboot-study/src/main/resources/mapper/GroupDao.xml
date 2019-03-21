@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.caber.caberspringbootstudy.dao.GroupDao">
+
+    <resultMap id="groupMap" type="Group">
+        <id property="id" column="id"></id>
+        <result property="count" column="count"/>
+        <collection property="peoples" javaType="list" ofType="People">
+            <id property="id" column="pid" />
+            <result property="name" column="name" />
+            <result property="age" column="age" />
+            <result property="gid" column="gid" />
+        </collection>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="groupMap">
+        SELECT g.* , p.gid as gid ,p.name,p.age, p.id as pid from groupa g LEFT outer join people p on g.id = p.gid
+    </select>
+
+</mapper>

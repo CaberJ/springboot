@@ -10,6 +10,7 @@ import java.io.IOException;
 
 @Configuration
 public class QuartzConfig {
+
     @Bean(name = "SchedulerFactory")
     public SchedulerFactoryBean schedulerFactoryBean() throws IOException {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();

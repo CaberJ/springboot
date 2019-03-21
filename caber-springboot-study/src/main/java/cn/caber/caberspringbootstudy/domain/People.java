@@ -6,14 +6,16 @@ public class People implements Serializable {
     private String id;
     private String name;
     private int age;
+    private String gid;
 
     public People() {
     }
 
-    public People(String id, String name, int age) {
+    public People(String id, String name, int age, String gid) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.gid = gid;
     }
 
     public String getId() {
@@ -40,12 +42,21 @@ public class People implements Serializable {
         this.age = age;
     }
 
+    public String getGid() {
+        return gid;
+    }
+
+    public void setGid(String gid) {
+        this.gid = gid;
+    }
+
     @Override
     public String toString() {
         return "People{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", gid='" + gid + '\'' +
                 '}';
     }
 }

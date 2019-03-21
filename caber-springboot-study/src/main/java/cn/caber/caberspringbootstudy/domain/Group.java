@@ -4,24 +4,24 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Group implements Serializable {
-    private int id;
+    private String id;
     private int count;
     private List<People> peoples;
 
     public Group() {
     }
 
-    public Group(int id, int count, List<People> peoples) {
+    public Group(String id, int count, List<People> peoples) {
         this.id = id;
         this.count = count;
         this.peoples = peoples;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

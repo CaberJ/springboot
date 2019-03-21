@@ -1,6 +1,8 @@
 package cn.caber.caberspringbootstudy.controller;
 
+import cn.caber.caberspringbootstudy.domain.Group;
 import cn.caber.caberspringbootstudy.domain.People;
+import cn.caber.caberspringbootstudy.service.GroupService;
 import cn.caber.caberspringbootstudy.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,9 @@ public class PeopleController {
 
     @Autowired
     private PeopleService peopleService;
+
+    @Autowired
+    private GroupService groupService;
 
     @RequestMapping("/a")
     public List<People> findAll() {
@@ -29,12 +34,12 @@ public class PeopleController {
 
     @RequestMapping("/c")
     public void findPeopleById(){
-        peopleService.insertOne(new People("3","lisi",23));
+        peopleService.insertOne(new People("3","lisi",23,"a"));
     }
 
     @RequestMapping("/d")
     public void updatePeople(){
-        peopleService.updatePeople(new People("3","lisi",23));
+        peopleService.updatePeople(new People("3","lisi",23,"a"));
     }
 
     @RequestMapping("/e")
@@ -52,6 +57,12 @@ public class PeopleController {
     public List<People> findByName1(String name) {
         List<People> peoples =peopleService.findByName1(name);
         return peoples;
+    }
+
+    @RequestMapping("/h")
+    public List<Group> findAllGroup() {
+        List<Group> groups = groupService.fingAll();
+        return groups;
     }
 
 

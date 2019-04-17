@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
  * 继承SchedulingConfigurer类并重写其方法，如下：
  */
 @Configuration
-//@EnableScheduling  暂时注掉 否则控制台一直有输出
+@EnableScheduling  //暂时注掉 否则控制台一直有输出
 public class ScheduleConfig implements SchedulingConfigurer {
 
     @Override

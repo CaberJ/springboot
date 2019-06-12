@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dap:flow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:dap="http://www.pactera.com/schema/dap-flow-component"
+          xsi:schemaLocation="http://www.pactera.com/schema/dap-flow-component
+              http://www.pactera.com/schema/dap-flow-component.xsd"
+          id="account">
+    <dap:node>
+        <dap:start/>
+        <dap:end/>
+        <dap:component id="acctCheck" class="com.demo.springboot.service.component.IAcctCheck"/>
+        <dap:component id="acctBalCheck" class="com.demo.springboot.service.component.IAcctBalCheck"/>
+        <dap:component id="accounting" class="com.demo.springboot.service.component.IAccounting"/>
+        <dap:component id="initAccountList" class="com.demo.springboot.service.component.IInitAccountList"/>
+        <dap:component id="acctMainListUpdate" class="com.demo.springboot.service.component.IAcctMainListUpdate"/>
+        <dap:component id="acctSubListUpdate" class="com.demo.springboot.service.component.IAcctSubListUpdate"/>
+        <dap:component id="cumulativeCharge" class="com.demo.springboot.service.component.ICumulativeCharge"/>
+
+
+        <dap:block id="account_block_1" mode="CONCURRENCY"
+                   tactics="1" leaf-node="account_block_1_leaf_node"/>
+        <dap:block id="account_block_2" mode="LOOP"
+                   tactics="1" transaction="account_transaction_1" leaf-node="account_block_2_leaf_node"/>
+    </dap:node>
+
+    <dap:connect>
+        <dap:line from="start" to="account_block_1" param="account_param_1"/>
+        <dap:line from="test_block_1" to="initAccountList" param="account_param_2"/>
+        <dap:line from="initAccountList" to="account_block_2" param="account_param_3"/>
+        <dap:line from="account_block_2" to="acctMainListUpdate" param="account_param_4"/>
+        <dap:line from="acctMainListUpdate" to="end" param="account_param_5"/>
+
+        <dap:line from="account_block_1_leaf_node" to="acctCheck" param="account_param_6"/>
+        <dap:line from="acctCheck" to="acctBalCheck" condition="EACH.dcFlag == 'D'" param="account_param_7"/>
+
+        <dap:line from="account_block_2_leaf_node" to="acctCheck" param="account_param_8"/>
+        <dap:line from="acctCheck" to="acctBalCheck" condition="EACH.dcFlag == 'D'" param="account_param_9"/>
+        <dap:line from="acctBalCheck" to="accounting" param="account_param_10"/>
+        <dap:line from="accounting" to="cumulativeCharge" condition="EACH.acctType == '1'" param="account_param_11"/>
+        <dap:line from="cumulativeCharge" to="acctSubListUpdate" param="account_param_12"/>
+
+        <dap:param id="account_param_1">
+            <dap:field present="EACH" source="FLOW.listAcct"/>
+        </dap:param>
+        <dap:param id="account_param_2">
+            <dap:field present="listAcctount" source="FLOW.listAcct"/>
+        </dap:param>
+        <dap:param id="account_param_3">
+            <dap:field present="EACH" source="FLOW.listAcct"/>
+        </dap:param>
+        <dap:param id="account_param_4">
+            <dap:field present="acctSeq" source="FLOW.acctSeq"/>
+        </dap:param>
+        <dap:param id="account_param_5">
+            <dap:field present="acctSeq" source="FLOW.acctSeq"/>
+        </dap:param>
+        <dap:param id="account_param_6">
+            <dap:field present="acctNo" source="EACH.acctNo"/>
+            <dap:field present="dcFlag" source="EACH.dcFlag"/>
+        </dap:param>
+        <dap:param id="account_param_7">
+            <dap:field present="acctNo" source="EACH.acctNo"/>
+            <dap:field present="txnAmt" source="EACH.txnAmt"/>
+        </dap:param>
+        <dap:param id="account_param_8">
+            <dap:field present="acctNo" source="EACH.acctNo"/>
+            <dap:field present="dcFlag" source="EACH.dcFlag"/>
+        </dap:param>
+        <dap:param id="account_param_9">
+            <dap:field present="acctNo" source="EACH.acctNo"/>
+            <dap:field present="txnAmt" source="EACH.txnAmt"/>
+        </dap:param>
+        <dap:param id="account_param_10">
+            <dap:field present="acctNo" source="EACH.acctNo"/>
+            <dap:field present="txnAmt" source="EACH.txnAmt"/>
+        </dap:param>
+        <dap:param id="account_param_11">
+            <dap:field present="acctNo" source="EACH.acctNo"/>
+            <dap:field present="acctType" source="EACH.txnAmt"/>
+            <dap:field present="txnAmt" source="EACH.txnAmt"/>
+        </dap:param>
+        <dap:param id="account_param_12">
+            <dap:field present="acctNo" source="EACH.acctNo"/>
+            <dap:field present="acctSeq" source="FLOW.acctSeq"/>
+        </dap:param>
+    </dap:connect>
+
+    <dap:slot>
+        <dap:transaction id="account_transaction_1"/>
+    </dap:slot>
+</dap:flow>

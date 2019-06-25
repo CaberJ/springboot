@@ -7,6 +7,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.env.Environment;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @Description:
  * @Author: zhaikaibo

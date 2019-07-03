@@ -15,7 +15,7 @@ import java.util.Map;
  * @Date: 2019/6/24 18:08
  */
 @Component
-public class Demo implements ApplicationContextInitializer<ConfigurableApplicationContext>{
+public class EvnPlus implements ApplicationContextInitializer<ConfigurableApplicationContext>{
 
     @Override
     public void initialize(ConfigurableApplicationContext configurableApplicationContext) {

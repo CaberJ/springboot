@@ -1,1 +1,2 @@
-org.springframework.context.ApplicationContextInitializer=cn.caber.springbootstudy.load.Demo
+org.springframework.context.ApplicationContextInitializer=cn.caber.springbootstudy.load.EvnPlus
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=cn.caber.springbootstudy.springspi.impl.MyClass1

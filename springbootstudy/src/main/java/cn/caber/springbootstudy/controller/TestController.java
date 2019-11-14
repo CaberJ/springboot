@@ -1,6 +1,8 @@
 package cn.caber.springbootstudy.controller;
 
+import cn.caber.springbootstudy.bean.ConditionBean;
 import cn.caber.springbootstudy.jdkspi.Publish;
+import cn.caber.springbootstudy.springspi.MyClass;
 import cn.caber.springbootstudy.springspi.MyInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,19 @@ public class TestController {
     @Autowired
     private MyInterface myInterface;
 
+    @Autowired
+    private MyClass myClass;
+
+    @Autowired
+    private ConditionBean conditionBean;
+
+    //condition测试
+    @RequestMapping("/condition")
+    public String condition() {
+        String status = conditionBean.getStatus();
+        return status;
+    }
+
 
     //jdkSpi测试
     @RequestMapping("/jdkSpi")
@@ -41,6 +56,12 @@ public class TestController {
     @RequestMapping("/springSpi")
     public String springSpi() {
         return myInterface.sayHello();
+    }
+
+    //springSpi测试2
+    @RequestMapping("/springSpi2")
+    public String springSpi2() {
+        return myClass.sayHi();
     }
 
 }

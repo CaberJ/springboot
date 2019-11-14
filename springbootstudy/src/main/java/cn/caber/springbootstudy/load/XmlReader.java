@@ -20,7 +20,7 @@ import java.sql.*;
  * @Author: zhaikaibo
  * @Date: 2019/6/24 16:13
  */
-@Component
+//@Component
 public class XmlReader implements BeanFactoryPostProcessor , EnvironmentAware, BeanFactoryAware {
     private Environment environment;
     private BeanFactory beanFactory;

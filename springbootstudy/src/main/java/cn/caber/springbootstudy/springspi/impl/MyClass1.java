@@ -1,6 +1,8 @@
 package cn.caber.springbootstudy.springspi.impl;
 
+import cn.caber.springbootstudy.bean.People;
 import cn.caber.springbootstudy.springspi.MyInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @Description:
@@ -9,8 +11,11 @@ import cn.caber.springbootstudy.springspi.MyInterface;
  */
 public class MyClass1 implements MyInterface {
 
+    @Autowired
+    private People people;
+
     @Override
     public String sayHello() {
-        return "hello1";
+        return people.getName()+1;
     }
 }

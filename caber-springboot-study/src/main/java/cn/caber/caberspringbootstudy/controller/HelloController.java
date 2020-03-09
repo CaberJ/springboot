@@ -1,9 +1,10 @@
 package cn.caber.caberspringbootstudy.controller;
 
 import cn.caber.caberspringbootstudy.component.Student;
+import cn.caber.caberspringbootstudy.domain.AbcPo;
+import cn.caber.caberspringbootstudy.domain.CellPhone;
 import cn.caber.caberspringbootstudy.domain.People;
 import cn.caber.caberspringbootstudy.service.HelloService;
-import cn.caber.caberspringbootstudy.timedTask.springTask.ScheduledService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,6 +55,12 @@ public class HelloController {
             System.out.println(people.toString());
         }
         return peoples.toString();
+    }
+
+    @RequestMapping(value = "/requestBody2",method = RequestMethod.POST)
+    public String requestBody2(@RequestBody People a){
+
+        return a.toString();
     }
 
     @RequestMapping("/do")

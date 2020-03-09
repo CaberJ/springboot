@@ -17,4 +17,5 @@ public class Config {
     public People getPeople(){
         return new People("caber",12);
     }
+
 }

@@ -11,7 +11,7 @@ import java.io.IOException;
 @Configuration
 public class QuartzConfig {
 
-    @Bean(name = "SchedulerFactory")
+        @Bean(name = "SchedulerFactory")
     public SchedulerFactoryBean schedulerFactoryBean() throws IOException {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();
         //用于quartz集群,QuartzScheduler 启动时更新己存在的Job，这样就不用每次修改targetObject后删除qrtz_job_details表对应记录了

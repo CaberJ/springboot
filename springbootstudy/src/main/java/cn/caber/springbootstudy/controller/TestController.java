@@ -1,6 +1,7 @@
 package cn.caber.springbootstudy.controller;
 
 import cn.caber.springbootstudy.bean.ConditionBean;
+import cn.caber.springbootstudy.jdkspi.MyNewClass;
 import cn.caber.springbootstudy.jdkspi.Publish;
 import cn.caber.springbootstudy.springspi.MyClass;
 import cn.caber.springbootstudy.springspi.MyInterface;
@@ -19,7 +20,7 @@ import java.util.ServiceLoader;
 @RestController
 public class TestController {
 
-    private ServiceLoader<Publish> publish = ServiceLoader.load(Publish.class);
+    private ServiceLoader<MyNewClass> myNewClasses = ServiceLoader.load(MyNewClass.class);
 
 
     @Autowired
@@ -42,14 +43,13 @@ public class TestController {
     //jdkSpi测试
     @RequestMapping("/jdkSpi")
     public String jdkSpi() {
-        Iterator<Publish> iterator = publish.iterator();
-        Publish next = null;
-        String pub = "";
+        Iterator<MyNewClass> iterator = myNewClasses.iterator();
+        MyNewClass next = null;
         while (iterator.hasNext()) {
             next = iterator.next();
-            pub = next.pub();
+            System.out.println(next);
         }
-        return pub;
+       return "ok";
     }
 
     //springSpi测试

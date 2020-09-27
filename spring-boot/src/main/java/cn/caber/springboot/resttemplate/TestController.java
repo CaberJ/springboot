@@ -50,6 +50,17 @@ public class TestController {
         return p.toString();
     }
 
+    @RequestMapping(value = "/post/map", method = RequestMethod.GET)
+    public String postMap() {
+        restTemplate = new RestTemplate();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("age",12);
+        map.put("name","libai");
+        Person p = restTemplate.postForObject("http://localhost:8080/rest/post/obj", map, Person.class);
+        System.out.println(p.toString());
+        return p.toString();
+    }
+
     @RequestMapping(value = "/post/str1", method = RequestMethod.GET)
     public Person postStr() {
         restTemplate = new RestTemplate();

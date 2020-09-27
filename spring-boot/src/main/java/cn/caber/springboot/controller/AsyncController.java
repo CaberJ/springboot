@@ -21,9 +21,10 @@ public class AsyncController {
     AsyncDemo asyncDemo;
 
     @GetMapping("/void")
-    public void test1(){
+    public String test1(){
         System.out.println("主线程："+Thread.currentThread().getName());
         asyncDemo.test1();
+        return "success";
     }
 
     @GetMapping("/test2")

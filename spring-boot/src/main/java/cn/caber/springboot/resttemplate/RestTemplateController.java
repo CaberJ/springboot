@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/test")
-public class TestController {
+public class RestTemplateController {
 
 
     private RestTemplate restTemplate;

@@ -1,4 +1,4 @@
-package cn.caber.springboot.controller;
+package cn.caber.springboot.schedule;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

@@ -2,7 +2,6 @@ package cn.caber.springbootstudy.controller;
 
 import cn.caber.springbootstudy.bean.ConditionBean;
 import cn.caber.springbootstudy.jdkspi.MyNewClass;
-import cn.caber.springbootstudy.jdkspi.Publish;
 import cn.caber.springbootstudy.springspi.MyClass;
 import cn.caber.springbootstudy.springspi.MyInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.ServiceLoader;
 
 /**
@@ -29,8 +30,9 @@ public class TestController {
     @Autowired
     private MyClass myClass;
 
-    @Autowired
+    @Autowired(required = false)
     private ConditionBean conditionBean;
+
 
     //condition测试
     @RequestMapping("/condition")
@@ -49,7 +51,7 @@ public class TestController {
             next = iterator.next();
             System.out.println(next);
         }
-       return "ok";
+        return "ok";
     }
 
     //springSpi测试
@@ -63,5 +65,6 @@ public class TestController {
     public String springSpi2() {
         return myClass.sayHi();
     }
+
 
 }

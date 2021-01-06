@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
@@ -14,6 +15,7 @@ import javax.annotation.PostConstruct;
  * @Author: zhaikaibo
  * @Date: 2019/5/7 17:15
  */
+//@Component
 public class InitHandle implements InitializingBean/*, ApplicationContextAware*/ {
 //    ApplicationContext applicationContext;
 

@@ -1,5 +1,6 @@
 package cn.caber.caberspringbootstudy.controller;
 
+import cn.caber.caberspringbootstudy.annotation.TimeConsumingPrint;
 import cn.caber.caberspringbootstudy.component.Student;
 import cn.caber.caberspringbootstudy.domain.People;
 import cn.caber.caberspringbootstudy.service.HelloService;
@@ -31,6 +32,7 @@ public class HelloController {
     @Autowired
     private Student s;
 
+
     @Autowired
     private HelloService helloService;
 
@@ -47,6 +49,7 @@ public class HelloController {
         return s.toString();
     }
 
+
     @RequestMapping(value = "/requestBody",method = RequestMethod.POST)
     public String requestBody(@RequestBody List<People> peoples){
         for (People people : peoples) {
@@ -61,12 +64,22 @@ public class HelloController {
         return a.toString();
     }
 
+    @TimeConsumingPrint
     @RequestMapping("/do")
     public String sayHello(){
         String s = helloService.sayHello();
         return s;
     }
 
-
+    @TimeConsumingPrint
+    @RequestMapping("/consumeTime")
+    public String consumeTime(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "success";
+    }
 
 }

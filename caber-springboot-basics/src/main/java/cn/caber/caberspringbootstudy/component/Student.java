@@ -1,5 +1,6 @@
 package cn.caber.caberspringbootstudy.component;
 
+import cn.caber.caberspringbootstudy.annotation.ClassNamePrint;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "student")
 @PropertySource(value = "classpath:/student.properties")
+@ClassNamePrint("student")
 public class Student {
     private int id;
     private String name;

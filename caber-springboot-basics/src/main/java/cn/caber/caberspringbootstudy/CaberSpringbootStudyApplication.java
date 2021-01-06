@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling  //使定时任务注解@Scheduled生效，可单独给@Scheduled写配置类
+//@EnableScheduling  //使定时任务注解@Scheduled生效，可单独给@Scheduled写配置类
 //@MapperScan("cn.caber.caberspringbootstudy.dao")//或者在mapper类上加@Mapper注解
 public class CaberSpringbootStudyApplication /*implements ApplicationRunner */{
 

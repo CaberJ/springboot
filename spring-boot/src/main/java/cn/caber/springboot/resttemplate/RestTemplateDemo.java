@@ -1,6 +1,5 @@
-package cn.caber.springboot.controller;
+package cn.caber.springboot.resttemplate;
 
-import cn.caber.springboot.model.Person;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

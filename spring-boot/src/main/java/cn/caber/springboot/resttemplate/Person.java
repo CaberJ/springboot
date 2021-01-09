@@ -1,4 +1,4 @@
-package cn.caber.springboot.model;
+package cn.caber.springboot.resttemplate;
 
 public class Person {
 

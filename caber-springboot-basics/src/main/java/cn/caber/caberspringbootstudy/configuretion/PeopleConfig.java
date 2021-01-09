@@ -15,11 +15,11 @@ public class PeopleConfig {
         return new People();
     }
 
-    /*@Bean
+    @Bean
     @ConfigurationProperties(prefix = "group")
-    public People getGroup(){
+    public Group getGroup(){
         return new Group();
-    }*/
+    }
 
 
 

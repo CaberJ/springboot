@@ -1,14 +1,11 @@
 package cn.caber.caberspringbootstudy.timedTask.scheduledExecutorService;
 
 import java.util.Date;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class MyScheduledExecutorService {
     public static void main(String[] args) {
         ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
-
         Runnable runnable = new Runnable() {
             @Override
             public void run() {

@@ -26,7 +26,7 @@ public class Test implements BeanFactoryPostProcessor {
         String template = FreeMarkerUtils.getTemplate("class.ftl", stringObjectHashMap);
         System.out.println("template=="+template);
         try {
-            CompileUtils.compile("cn.caber.springbootstudy.bean.User", template).newInstance();
+            Object o = CompileUtils.compile("cn.caber.springbootstudy.bean.User", template).newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

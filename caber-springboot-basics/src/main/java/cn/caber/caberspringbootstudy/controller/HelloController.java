@@ -82,4 +82,14 @@ public class HelloController {
         return "success";
     }
 
+    @RequestMapping("/sleep")
+    public String sleep(){
+        try {
+            Thread.sleep(30000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "success";
+    }
+
 }

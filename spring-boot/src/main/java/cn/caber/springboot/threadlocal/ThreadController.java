@@ -1,4 +1,4 @@
-package cn.caber.springboot.controller;
+package cn.caber.springboot.threadlocal;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +13,7 @@ import java.util.Set;
 public class ThreadController {
 
     private static  final ThreadLocal<String> threadLocal = new ThreadLocal<String>();
+    public static final ThreadLocal<Map<String,String>> map = new ThreadLocal<>();
 
     @GetMapping("/set")
     public String set(String str){
@@ -30,11 +31,11 @@ public class ThreadController {
     @GetMapping("/set1")
     public String set1(String str){
 
-        Map<String, String> strMap = UploadController.map.get();
+        Map<String, String> strMap = map.get();
         if(Objects.isNull(strMap)){
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put(str,str+Thread.currentThread().getName());
-            UploadController.map.set(hashMap);
+            map.set(hashMap);
         }else {
             strMap.put(str,str+Thread.currentThread().getName());
         }
@@ -51,7 +52,7 @@ public class ThreadController {
 
     @GetMapping("/get1")
     public String get1(){
-        Map<String, String> stringStringMap = UploadController.map.get();
+        Map<String, String> stringStringMap = map.get();
         if(Objects.nonNull(stringStringMap)){
             Set<Map.Entry<String, String>> entries = stringStringMap.entrySet();
             for (Map.Entry<String, String> entry : entries) {
@@ -69,7 +70,7 @@ public class ThreadController {
 
     @GetMapping("/remove1")
     public String remove1(){
-        UploadController.map.remove();
+        map.remove();
         return "remove1 success";
     }
 }

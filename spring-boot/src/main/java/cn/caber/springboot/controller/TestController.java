@@ -28,4 +28,26 @@ public class TestController {
         System.out.println("30s 请求完成");
         return "success";
     }
+    @GetMapping("/do")
+    public String set4(){
+        System.out.println("success");
+        try {
+            Thread.sleep(10*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "success";
+    }
+
+    @GetMapping("/sleep")
+    public String set3(){
+        try {
+            Thread.sleep(60*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String name = Thread.currentThread().getName();
+        System.out.println("线程号："+name);
+        return name;
+    }
 }

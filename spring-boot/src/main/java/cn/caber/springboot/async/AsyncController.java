@@ -1,4 +1,4 @@
-package cn.caber.springboot.controller;
+package cn.caber.springboot.async;
 
 import cn.caber.springboot.async.AsyncDemo;
 import org.springframework.beans.factory.annotation.Autowired;

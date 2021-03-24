@@ -13,6 +13,7 @@ import javax.annotation.PostConstruct;
 /**
  * @Description:
  * @Author: zhaikaibo
+ * InitializingBean  实现这个接口的Bean在他自己初试化时都会执行afterPropertiesSet()
  * @Date: 2019/5/7 17:15
  */
 //@Component
@@ -20,20 +21,20 @@ public class InitHandle implements InitializingBean/*, ApplicationContextAware*/
 //    ApplicationContext applicationContext;
 
     public void afterPropertiesSet() throws Exception {
-        System.out.println("afterPropertiesSet执行了");
+        System.out.println("InitHandle 的 afterPropertiesSet执行了");
     }
 
     public void init(){
 
-        System.out.println("init 执行了");
+        System.out.println("InitHandle的 init 执行了");
     }
 
     public void destroy(){
-        System.out.println("destroy 执行了");
+        System.out.println(" InitHandle的 destroy 执行了");
     }
 
     public InitHandle() {
-        System.out.println("构造方法");
+        System.out.println("InitHandle的 构造方法");
     }
 
     /*@Override

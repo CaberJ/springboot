@@ -11,5 +11,5 @@
     <bean id="InitHandle" class="cn.caber.springbootstudy.bean.InitHandle" scope="singleton" init-method="init" destroy-method="destroy">
     </bean>
 
-  <!--<bean class="cn.caber.springbootstudy.bean.PostProcessor"/>-->
+  <bean class="cn.caber.springbootstudy.bean.PostProcessor"/>
 </beans>

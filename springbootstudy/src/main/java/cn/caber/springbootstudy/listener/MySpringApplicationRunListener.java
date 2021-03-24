@@ -34,7 +34,7 @@ public class MySpringApplicationRunListener implements SpringApplicationRunListe
      */
     @Override
     public void contextPrepared(ConfigurableApplicationContext context) {
-
+        System.out.println("SpringApplicationRunListener .. contextPrepared..");
     }
 
     /**
@@ -43,7 +43,7 @@ public class MySpringApplicationRunListener implements SpringApplicationRunListe
      */
     @Override
     public void contextLoaded(ConfigurableApplicationContext context) {
-
+        System.out.println("SpringApplicationRunListener .. contextLoaded..");
     }
 
     @Override

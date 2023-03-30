@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.caber.app.server.model.mapper.PersonMapper">
+
+    <select id="getList" resultType="cn.caber.app.server.model.result.PersonVo">
+        select * from person
+        <where>
+            <if test="cmd.name != null and cmd.name != ''">
+                and name like concat('%', replace(replace(replace(#{cmd.name}, '!', '!!'), '%', '!%'), '_', '!_'), '%')  escape '!'
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

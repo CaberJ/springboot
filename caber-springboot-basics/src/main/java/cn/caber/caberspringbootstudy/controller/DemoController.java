@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+//@RestController
 @RequestMapping("/")
 @ConfigurationProperties(prefix = "people")//这样使用必须提供set方法
 public class DemoController {

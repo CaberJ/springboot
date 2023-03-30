@@ -1,3 +1,4 @@
+/*
 package cn.caber.caberspringbootstudy.timedTask.quartz.job;
 
 import org.quartz.Job;
@@ -13,3 +14,4 @@ public class MyJob implements Job {
         System.out.println("hello, myjob has been execute"+new Date().toString());
     }
 }
+*/

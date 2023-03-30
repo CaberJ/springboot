@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+//@RestController
 @RequestMapping("/people")
 public class PeopleController {
 
@@ -25,7 +25,6 @@ public class PeopleController {
         List<People> peoples =peopleService.findAll();
         return peoples;
     }
-
     @RequestMapping("/b")
     public People findPeopleById(String id){
         People peo = peopleService.findPeopleById(id);

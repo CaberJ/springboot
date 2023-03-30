@@ -1,3 +1,4 @@
+/*
 package cn.caber.caberspringbootstudy.timedTask.quartz.configuretion;
 
 import org.quartz.Scheduler;
@@ -8,7 +9,7 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
 import java.io.IOException;
 
-@Configuration
+//@Configuration
 public class QuartzConfig {
 
         @Bean(name = "SchedulerFactory")
@@ -21,19 +22,23 @@ public class QuartzConfig {
         return factory;
     }
 
-    /**
+    */
+/**
      * quartz初始化监听器
      *
      * @return
-     */
+     *//*
+
     @Bean
     public QuartzInitializerListener executorListener() {
         return new QuartzInitializerListener();
     }
 
-    /*
+    */
+/*
      * 通过SchedulerFactoryBean获取Scheduler的实例
-     */
+     *//*
+
     @Bean(name = "Scheduler")
     public Scheduler scheduler() throws IOException {
         Scheduler scheduler = schedulerFactoryBean().getScheduler();
@@ -41,3 +46,4 @@ public class QuartzConfig {
     }
 
 }
+*/

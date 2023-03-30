@@ -13,7 +13,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisConfig {
 
-    @Autowired
+/*    @Autowired
     private RedisConnectionFactory redisConnectionFactory;
 
     @Bean
@@ -21,12 +21,12 @@ public class RedisConfig {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 
         //设置数据存入 redis 的序列化方式一
-/*
+*//*
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashValueSerializer(new JdkSerializationRedisSerializer());
         redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
-*/
+*//*
 
 
         //设置数据存入 redis 的序列化方式二
@@ -38,6 +38,6 @@ public class RedisConfig {
         redisTemplate.setHashValueSerializer(stringSerializer);
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         return redisTemplate;
-    }
+    }*/
 
 }

@@ -1,1 +1,37 @@
 
+logging:
+  level:
+    root: debug
+
+
+server.port: 9090
+
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:h2:mem:testdb;MODE=MYSQL;DATABASE_TO_UPPER=false;
+    username: sa
+    password:
+  sql:
+    init:
+      schema-locations: classpath:/sql/create_tables.sql
+      mode: embedded
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+mybatis:
+  mapperScanner:
+    basePackage: cn.caber.caberspringbootstudy.dao
+  queryMaxLimit: 500
+  queryEndMaxToIndex: true
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

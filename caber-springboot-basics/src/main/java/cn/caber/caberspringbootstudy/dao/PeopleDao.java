@@ -2,14 +2,13 @@ package cn.caber.caberspringbootstudy.dao;
 
 import cn.caber.caberspringbootstudy.domain.People;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 
 @Component
-@Mapper
+//@Mapper
 public interface PeopleDao {
 
     //注解方式

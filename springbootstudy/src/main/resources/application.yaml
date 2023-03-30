@@ -1,0 +1,39 @@
+server:
+  port: 8083
+name: aaa
+
+
+jdbc:
+  url: jdbc:mysql://localhost:3306/flow?autoreconnect=true&characterEncoding=UTF-8&serverTimezone=UTC
+  usr: root
+  psw: root
+
+conditionTest:
+  condition: off
+
+
+
+ql:
+  caber-size: 12
+  caber-names:
+    - aa
+    - bbb
+    - vvvv
+    - dddd
+
+cn:
+  caber:
+    demo1:
+      aa:
+        aname: zhangsan
+        aage: 12
+    demo2:
+      bb:
+        bname: lisi
+        bage: 23
+
+    demo3:
+      cc: 9900
+
+
+

@@ -1,0 +1,24 @@
+server:
+  port: 8880
+
+
+spring:
+  application:
+    name: caber-app-web
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: -1
+    id: dubbo-protocol
+  registry:
+    address: zookeeper://114.132.198.119:2181
+    group: caber
+  consumer:
+    group: caber
+
+mybatis:
+  mapperScanner:
+    basePackage: cn.caber.app.server.*.mapper
+  mapper-locations: classpath:mapper/*.xml
+

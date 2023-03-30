@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @Date: 2019/7/9 20:04
  */
 
-@Component
+//@Component
 public class SpringUtil implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext = null;
@@ -39,13 +39,12 @@ public class SpringUtil implements ApplicationContextAware {
     }
 
     public static Object getBeanByClass(Class<?> clazz) {
-        return getApplicationContext().getBean(clazz.getSimpleName());
+        return getApplicationContext().getBean(clazz);
     }
 
     public static Object getBeanByName(String name) {
         return getApplicationContext().getBean(name);
     }
-
 
 
 

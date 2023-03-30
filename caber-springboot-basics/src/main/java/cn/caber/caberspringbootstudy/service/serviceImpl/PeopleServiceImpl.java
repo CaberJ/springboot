@@ -3,15 +3,19 @@ package cn.caber.caberspringbootstudy.service.serviceImpl;
 import cn.caber.caberspringbootstudy.dao.PeopleDao;
 import cn.caber.caberspringbootstudy.domain.People;
 import cn.caber.caberspringbootstudy.service.PeopleService;
+import org.redisson.api.RList;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-@Service
+//@Service
 public class PeopleServiceImpl implements PeopleService {
 
     @Autowired
@@ -20,6 +24,8 @@ public class PeopleServiceImpl implements PeopleService {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Autowired
+    private RedissonClient redissonClient;
 
     @Override
     @Transactional
@@ -28,20 +34,13 @@ public class PeopleServiceImpl implements PeopleService {
         List<People> peoples = new ArrayList<People>();
 
         //从redis中获取
-        Long size = redisTemplate.opsForList().size("peoples");
-        if (size == 0) {
-            //从数据库中获取，存进redis
-            peoples = peopleDao.findAll();
-            for (People people : peoples) {
-                redisTemplate.boundListOps("peoples").leftPush(people);
-            }
-        } else {
-            for (Long i = 0L; i < size; i++) {
-                peoples.add((People) redisTemplate.opsForList().rightPop("peoples"));
-            }
-
-        }
-
+//        Long size = redisTemplate.opsForList().size("peoples");
+        Integer size = redissonClient.getList("peoples").size();
+        HashMap<String, String> map = new HashMap<>();
+        map.put("name","caber");
+        redissonClient.getBuckets().set(map);
+        Map<String, Object> name = redissonClient.getBuckets().get("name");
+        System.out.println(name.toString());
         return peoples;
     }
 

@@ -1,8 +1,9 @@
 package cn.caber.caberspringbootstudy.websocket;
 
 
-import com.alibaba.druid.support.logging.Log;
-import com.alibaba.druid.support.logging.LogFactory;
+import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -14,7 +15,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 @ServerEndpoint("/websocket/{sid}")
 @Component
 public class WebSocketServer {
-    static Log log= LogFactory.getLog(WebSocketServer.class);
+    private static Logger log = LoggerFactory.getLogger(WebSocketServer.class);
 
     //静态变量，用来记录当前在线连接数
     private static int onlineCount = 0;
@@ -26,21 +27,21 @@ public class WebSocketServer {
     private Session session;
 
     //接收sid
-    private String sid="";
+    private String sid = "";
 
     /**
      * 连接建立成功调用的方法
      */
     @OnOpen
-    public void onOpen(Session session,@PathParam("sid") String sid) {
+    public void onOpen(Session session, @PathParam("sid") String sid) {
         this.session = session;
         webSocketSet.add(this); //加入set中
         addOnlineCount(); //在线数加1
-        log.info(sid+"上线了,当前在线人数为" + getOnlineCount());
-        this.sid=sid;
+        log.info(sid + "上线了,当前在线人数为" + getOnlineCount());
+        this.sid = sid;
         try {
-            sendInfo(sid+"上线了,当前在线人数为" + getOnlineCount(),null);
-            sendInfo(sid+":你已经上线",sid);
+            sendInfo(sid + "上线了,当前在线人数为" + getOnlineCount(), null);
+            sendInfo(sid + ":你已经上线", sid);
         } catch (IOException e) {
             log.error("websocket IO异常");
         }
@@ -59,10 +60,11 @@ public class WebSocketServer {
     /**
      * 收到客户端消息后调用的方法
      *
-     * @param message 客户端发送过来的消息*/
+     * @param message 客户端发送过来的消息
+     */
     @OnMessage
     public void onMessage(String message, Session session) {
-        log.info("收到来自窗口"+sid+"的信息:"+message);
+        log.info("收到来自窗口" + sid + "的信息:" + message);
 //群发消息
         for (WebSocketServer item : webSocketSet) {
             try {
@@ -74,7 +76,6 @@ public class WebSocketServer {
     }
 
     /**
-     *
      * @param session
      * @param error
      */
@@ -83,6 +84,7 @@ public class WebSocketServer {
         log.error("发生错误");
         error.printStackTrace();
     }
+
     /**
      * 实现服务器主动推送
      */
@@ -91,19 +93,17 @@ public class WebSocketServer {
     }
 
 
-
     /**
      * 群发自定义消息
-     *
      */
-    public static void sendInfo(String message,@PathParam("sid") String sid) throws IOException {
-        log.info("推送消息到窗口"+sid+"，推送内容:"+message);
+    public static void sendInfo(String message, @PathParam("sid") String sid) throws IOException {
+        log.info("推送消息到窗口" + sid + "，推送内容:" + message);
         for (WebSocketServer item : webSocketSet) {
             try {
-    //这里可以设定只推送给这个sid的，为null则全部推送
-                if(sid==null) {
+                //这里可以设定只推送给这个sid的，为null则全部推送
+                if (sid == null) {
                     item.sendMessage(message);
-                }else if(item.sid.equals(sid)){
+                } else if (item.sid.equals(sid)) {
                     item.sendMessage(message);
                 }
             } catch (IOException e) {
@@ -123,7 +123,6 @@ public class WebSocketServer {
     public static synchronized void subOnlineCount() {
         WebSocketServer.onlineCount--;
     }
-
 
 
 }

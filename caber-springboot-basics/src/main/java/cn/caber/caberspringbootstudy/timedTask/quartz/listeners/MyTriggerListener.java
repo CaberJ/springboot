@@ -1,3 +1,4 @@
+/*
 package cn.caber.caberspringbootstudy.timedTask.quartz.listeners;
 
 import org.quartz.JobExecutionContext;
@@ -30,3 +31,4 @@ public class MyTriggerListener implements TriggerListener{
 
     }
 }
+*/

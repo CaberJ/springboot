@@ -1,5 +1,6 @@
 package cn.caber.springbootstudy.listener;
 
+import cn.caber.springbootstudy.env.TestConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -48,12 +49,12 @@ public class MySpringApplicationRunListener implements SpringApplicationRunListe
 
     @Override
     public void started(ConfigurableApplicationContext context) {
-
+        System.out.println("SpringApplicationRunListener .. started..");
     }
 
     @Override
     public void running(ConfigurableApplicationContext context) {
-
+        System.out.println("SpringApplicationRunListener .. running..");
     }
 
     @Override

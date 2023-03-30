@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @Author: zhaikaibo
  * @Date: 2019/5/7 17:32
  */
-@Component
+//@Component
 public class PostProcessor implements BeanPostProcessor {
     public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
         System.out.println("每个bean初始化前执行，beforeInitialization "+o+" beanName="+s);

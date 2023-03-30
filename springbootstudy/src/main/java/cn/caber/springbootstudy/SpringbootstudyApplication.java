@@ -1,5 +1,8 @@
 package cn.caber.springbootstudy;
 
+import cn.caber.springbootstudy.config.AProperties;
+import cn.caber.springbootstudy.config.ParentProperties;
+import cn.caber.springbootstudy.env.TestConfig;
 import cn.caber.springbootstudy.jdkspi.Publish;
 import cn.caber.springbootstudy.util.CompileUtils;
 import cn.caber.springbootstudy.util.ControllerUtils;
@@ -12,11 +15,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.EnvironmentAware;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertySource;
 
 import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ServiceLoader;
 
 @SpringBootApplication
@@ -54,5 +60,12 @@ public class SpringbootstudyApplication {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
+
+
+        ParentProperties bean = (ParentProperties) SpringUtil.getBeanByName("parentProperties");
+        System.out.println(bean);
+
+
+
     }
 }

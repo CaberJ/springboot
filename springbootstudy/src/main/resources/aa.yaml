@@ -1,0 +1,81 @@
+logging:
+  level:
+    org.apache.ibatis: ERROR
+    com.baomidou: INFO
+    com.zxy.cloud.paas: INFO
+    com.alibaba.nacos: INFO
+    root: INFO
+
+spring:
+  application:
+    name: zxy-cloud-paas-mgr-server
+  servlet.multipart.max-file-size: 100MB
+  servlet.multipart.max-request-size: 100MB
+
+
+server:
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+dubbo:
+  cloud:
+    subscribed-services: zxy-cloud-paas-rpc-server
+  protocol:
+    name: dubbo
+    port: -1
+    id: dubbo-protocol
+  registry:
+    address: nacos://192.168.11.59:31858
+    group: develop
+    id: dubbo-registry
+  metadata-report:
+    group: develop
+  consumer:
+    loadbalance: devNfcLB
+    group: develop
+    check: false
+
+zxy:
+  commons:
+    minio:
+    # ???????http://
+    url: http://192.168.11.51:9000
+    accessKey: pr7t332e6w0w700xcym65kmuvoba1f35n8-7eefargpulfsytq
+    secretKey: 5ddy0l2wawiy25-v0blv0ptf4sfdvqaoh91qs7vp3kxxwsdrgk
+    bucket: apaas-bucket-develop
+  paas:
+    sso:
+      enable: false
+      jwt.secret: zxyZXY
+    biz-archive:
+      template-id: "177208780836208640"
+    config:
+      version: V1.2.0
+      redis-prefix: paas
+      companyStr: test
+    icon:
+      suffix: png,svg,ico
+  # ???
+  cloud:
+    file:
+      endpoint: https://fileclouddev.zhixueyun.com
+      context-path: /api/v1/cloud-file
+      auth:
+        key: wCCc1xtHhmuurgkb
+        username: user
+        password: pwd
+      # ?????????????
+      standard: standard
+      # ???????????????????-????
+      resourceSwitch: true
+    aes:
+      key: d8cg8gVakEq9Agup
+    cdn:
+      site: https://cdn.zhixueyun.com/

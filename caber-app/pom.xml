@@ -15,7 +15,7 @@
     <properties>
         <java.version>8</java.version>
         <revision>1.0.0-SNAPSHOT</revision>
-        <springboot.version>2.3.4.RELEASE</springboot.version>
+        <springboot.version>2.5.12</springboot.version>
         <dubbo.version>2.7.18</dubbo.version>
         <mybatis.version>3.5.6</mybatis.version>
         <spring.version>5.2.9.RELEASE</spring.version>

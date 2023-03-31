@@ -5,20 +5,16 @@ server:
 spring:
   application:
     name: caber-app-web
+  cloud:
+    nacos:
+      config:
+        server-addr: 114.132.198.119:8848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        namespace: bc03405b-ab46-4d44-ab85-7df5dc3ce457
+        shared-configs: caber-app-web.yaml
+        username: nacos
+        password: nacos
 
-dubbo:
-  protocol:
-    name: dubbo
-    port: -1
-    id: dubbo-protocol
-  registry:
-    address: zookeeper://114.132.198.119:2181
-    group: caber
-  consumer:
-    group: caber
 
-mybatis:
-  mapperScanner:
-    basePackage: cn.caber.app.server.*.mapper
-  mapper-locations: classpath:mapper/*.xml
 

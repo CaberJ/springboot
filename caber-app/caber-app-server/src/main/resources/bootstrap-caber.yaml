@@ -1,46 +1,17 @@
 server:
   port: 8888
 
-
 spring:
   application:
     name: caber-app-server
-  datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://114.132.198.119:3306/caber?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
-    username: root
-    paasword: root
-    hikari:
-      minimum-idle: 5
-      maximum-pool-size: 15
-      auto-commit: true
-      idle-timeout: 30000
-      pool-name: DatebookHikariCP
-      max-lifetime: 1800000
-      connection-timeout: 30000
-      connection-test-query: SELECT 1
-
-mybatis:
-
-
-dubbo:
-  scan:
-    base-packages: cn.caber.app.server.*.service
-  protocol:
-    name: dubbo
-    port: -1
-    id: dubbo-protocol
-  registry:
-    address: zookeeper://114.132.198.119:2181
-    group: caber
-  monitor:
-    group: caber
-  metadata-report:
-    group: caber
-  provider:
-    group: caber
-    filter: -exception
-    timeout: 500000
-    retries: 0
+  cloud:
+    nacos:
+      config:
+        server-addr: 114.132.198.119:8848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        namespace: bc03405b-ab46-4d44-ab85-7df5dc3ce457
+        shared-configs: caber-app-server.yaml
+        username: nacos
+        password: nacos
 

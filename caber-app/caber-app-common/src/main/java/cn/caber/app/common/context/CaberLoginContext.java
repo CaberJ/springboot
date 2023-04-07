@@ -1,13 +1,14 @@
 package cn.caber.app.common.context;
 
 
+import cn.caber.app.common.constant.LogInConstant;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class CaberLoginContext {
 
-    public static final String operatorKey = "operator";
     private static final ThreadLocal<Map<String, Object>> caberLoginContext = ThreadLocal.withInitial(HashMap::new);
 
     public static void put(String key, Object value) {
@@ -27,8 +28,8 @@ public class CaberLoginContext {
         return map.get(key);
     }
 
-    public static String getOperator(){
-        return  (String) get(operatorKey);
+    public static String getOperator() {
+        return (String) get(LogInConstant.OPERATOR);
     }
 
 }

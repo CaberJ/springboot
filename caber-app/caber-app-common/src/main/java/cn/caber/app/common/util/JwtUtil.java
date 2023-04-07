@@ -1,36 +1,47 @@
 package cn.caber.app.common.util;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.stereotype.Component;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTCreator;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.util.CollectionUtils;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-@Component
 public class JwtUtil {
 
-    private String secretKey;
 
-    public String createJwt(Map<String, Object> data, Long duration) {
-        JwtBuilder builder = Jwts.builder();
-        builder.setId(UUID.randomUUID().toString())
-                .setIssuedAt(new Date()) // 发行时间
-                .signWith(SignatureAlgorithm.HS256, secretKey);
+    private static final String secretKey = "caber";
+
+    public static String createJwt(Map<String, Object> data, Long duration) {
+        JWTCreator.Builder builder = JWT.create().withJWTId(UUID.randomUUID().toString()).withIssuedAt(new Date());
+
         if (!CollectionUtils.isEmpty(data)) {
-            builder.setClaims(data);
+            builder.withClaim("data", data);
         }
         if (duration > 0) {
-            builder.setExpiration(new Date(System.currentTimeMillis() + duration));
+            builder.withExpiresAt(new Date(System.currentTimeMillis() + duration));
         }
-        return builder.compact();
+        return builder.sign(Algorithm.HMAC256(secretKey.getBytes(StandardCharsets.UTF_8)));
     }
 
-    public Claims parseJwt(String jwtString) {
-        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwtString).getBody();
+    public static Map<String, Object> parseJwt(String token) {
+        DecodedJWT verify = JWT.require(Algorithm.HMAC256(secretKey.getBytes(StandardCharsets.UTF_8))).build().verify(token);
+        return verify.getClaim("data").asMap();
+    }
+
+
+    public static void main(String[] args) {
+        HashMap<String, Object> stringObjectHashMap = new HashMap<>();
+        stringObjectHashMap.put("name", "caber");
+        stringObjectHashMap.put("account", "22222");
+        stringObjectHashMap.put("password", "111111");
+        String jwt = createJwt(stringObjectHashMap, 30L * 1000L);
+        System.out.println(jwt);
+        System.out.println(parseJwt(jwt));
     }
 }

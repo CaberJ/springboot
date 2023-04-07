@@ -22,6 +22,7 @@
             <groupId>cn.caber</groupId>
             <artifactId>caber-app-common</artifactId>
             <version>${revision}</version>
+
         </dependency>
         <dependency>
             <groupId>cn.caber</groupId>

@@ -1,4 +1,4 @@
-package cn.caber.app.web.model.controller;
+package cn.caber.app.web.controller.model;
 
 import cn.caber.app.server.model.command.PersonCmd;
 import cn.caber.app.server.model.result.PersonVo;

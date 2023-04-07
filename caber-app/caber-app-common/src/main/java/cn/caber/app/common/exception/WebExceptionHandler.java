@@ -1,4 +1,4 @@
-package cn.caber.app.common.web;
+package cn.caber.app.common.exception;
 
 import cn.caber.app.common.exception.ServiceException;
 import cn.caber.app.common.result.Result;

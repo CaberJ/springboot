@@ -17,4 +17,8 @@ public class AccountHandler {
         return account.getId();
     }
 
+    public Integer update(Account account){
+        return accountMapper.updateById(account);
+    }
+
 }

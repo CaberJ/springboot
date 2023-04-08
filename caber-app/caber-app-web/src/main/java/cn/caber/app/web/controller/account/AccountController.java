@@ -5,7 +5,6 @@ import cn.caber.app.common.result.ResultUtil;
 import cn.caber.app.server.account.AccountCmd;
 import cn.caber.app.server.model.service.AccountService;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

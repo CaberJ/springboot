@@ -37,10 +37,11 @@ public class AccountServiceImpl implements AccountService {
             ServiceErrorCode.ACCOUNT_EXIST.throwIf(Objects.nonNull(byPhone));
         }
         Account account = AccountConvert.INSTANCE.convertToEntity(cmd);
-
-        account.setAccount("");
+        account.setOperatorId("");
         account.setPassword(Md5Util.encrypt(account.getPassword()));
-        String id = accountHandler.save(AccountConvert.INSTANCE.convertToEntity(cmd));
+        String id = accountHandler.save(account);
+        account.setOperatorId(id);
+        accountHandler.update(account);
         return id;
     }
 

@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CaberAppServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(CaberAppServerApplication.class, args);
-        System.out.println("Application started successfully!");
+        System.out.println("CaberAppServer started successfully!");
     }
 
 }

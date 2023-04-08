@@ -14,12 +14,12 @@ public class BaseEntity implements Serializable, Cloneable {
     @TableId(type = IdType.ASSIGN_ID)
     private String id;
 
-    @TableField(fill = FieldFill.INSERT)
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(value = "operator_id", fill = FieldFill.INSERT_UPDATE)
     private String operatorId;
 }

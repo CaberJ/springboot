@@ -1,4 +1,4 @@
-package cn.caber.app.server.model.command;
+package cn.caber.app.server.customer.command;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-public class PersonCmd implements Serializable {
+public class CustomerCmd implements Serializable {
 
     private String name;
 

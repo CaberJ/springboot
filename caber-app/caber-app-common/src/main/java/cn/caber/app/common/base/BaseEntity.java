@@ -1,4 +1,4 @@
-package cn.caber.app.common.dao;
+package cn.caber.app.common.base;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;

@@ -18,7 +18,10 @@ public class JwtUtil {
     private static final String secretKey = "caber";
 
     public static String createJwt(Map<String, Object> data, Long duration) {
-        JWTCreator.Builder builder = JWT.create().withJWTId(UUID.randomUUID().toString()).withIssuedAt(new Date());
+        JWTCreator.Builder builder = JWT.create()
+                .withJWTId(UUID.randomUUID().toString())
+                .withSubject("login")
+                .withIssuedAt(new Date());
 
         if (!CollectionUtils.isEmpty(data)) {
             builder.withClaim("data", data);

@@ -14,4 +14,11 @@ spring:
         shared-configs: caber-app-server.yaml
         username: nacos
         password: nacos
-
+  redis:
+    host: 114.132.198.119
+    port: 6370
+    lettuce:
+      pool:
+        max-active: 8
+        min-idle: 0
+    client-name: caber

@@ -11,7 +11,7 @@ public class AccountCmd implements Serializable {
 
 
     @NotBlank
-    private String account;
+    private String accountNumber;
 
     @NotBlank
     private String password;

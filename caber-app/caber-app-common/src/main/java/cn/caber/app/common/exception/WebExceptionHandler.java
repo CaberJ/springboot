@@ -1,8 +1,7 @@
 package cn.caber.app.common.exception;
 
-import cn.caber.app.common.exception.ServiceException;
-import cn.caber.app.common.result.Result;
-import cn.caber.app.common.result.ResultUtil;
+import cn.caber.app.common.base.Result;
+import cn.caber.app.common.base.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

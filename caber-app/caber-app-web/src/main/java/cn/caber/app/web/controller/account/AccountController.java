@@ -1,9 +1,9 @@
 package cn.caber.app.web.controller.account;
 
-import cn.caber.app.common.result.Result;
-import cn.caber.app.common.result.ResultUtil;
+import cn.caber.app.common.base.Result;
+import cn.caber.app.common.base.ResultUtil;
 import cn.caber.app.server.account.AccountCmd;
-import cn.caber.app.server.model.service.AccountService;
+import cn.caber.app.server.customer.service.AccountService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,5 +30,6 @@ public class AccountController {
         String s = accountService.login(cmd);
         return ResultUtil.success(s);
     }
+
 
 }

@@ -12,9 +12,9 @@ public class AccountFetcher {
     @Autowired
     private AccountMapper accountMapper;
 
-    public Account getByAccount(String accountStr) {
+    public Account getByAccount(String accountNumber) {
         QueryWrapper<Account> accountQueryWrapper = new QueryWrapper<>();
-        accountQueryWrapper.eq("account", accountStr);
+        accountQueryWrapper.eq("account_number", accountNumber);
         return accountMapper.selectOne(accountQueryWrapper);
     }
 

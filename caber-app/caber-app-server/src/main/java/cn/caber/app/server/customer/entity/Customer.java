@@ -1,6 +1,6 @@
-package cn.caber.app.server.model.entity;
+package cn.caber.app.server.customer.entity;
 
-import cn.caber.app.common.dao.BaseEntity;
+import cn.caber.app.common.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("caber")
-public class Person extends BaseEntity {
+public class Customer extends BaseEntity {
 
 
     private String name;

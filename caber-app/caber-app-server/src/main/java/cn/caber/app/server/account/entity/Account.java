@@ -1,6 +1,6 @@
 package cn.caber.app.server.account.entity;
 
-import cn.caber.app.common.dao.BaseEntity;
+import cn.caber.app.common.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -9,8 +9,8 @@ import lombok.Data;
 @TableName("account")
 public class Account extends BaseEntity {
 
-    @TableField("account")
-    private String account;
+    @TableField("account_number")
+    private String accountNumber;
     @TableField("password")
     private String password;
     @TableField("name")

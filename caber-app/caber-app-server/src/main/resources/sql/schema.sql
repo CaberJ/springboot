@@ -13,7 +13,7 @@ CREATE TABLE `caber`.`person`  (
 
 CREATE TABLE `caber`.`account`  (
                                      `id` varchar(20) NOT NULL,
-                                     `account` varchar(20) NOT NULL,
+                                     `account_number` varchar(20) NOT NULL,
                                      `password` varchar(50) NOT NULL,
                                      `name` varchar(20) NOT NULL DEFAULT '',
                                      `phone_number` varchar(15) NOT NULL DEFAULT '' AFTER `name`,

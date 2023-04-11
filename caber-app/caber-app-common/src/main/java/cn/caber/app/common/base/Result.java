@@ -1,4 +1,4 @@
-package cn.caber.app.common.result;
+package cn.caber.app.common.base;
 
 import lombok.Data;
 

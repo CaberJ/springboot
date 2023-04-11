@@ -1,4 +1,4 @@
-package cn.caber.app.common.result;
+package cn.caber.app.common.base;
 
 public class ResultUtil {
     public static final Integer SUCCESS_CODE = 0;

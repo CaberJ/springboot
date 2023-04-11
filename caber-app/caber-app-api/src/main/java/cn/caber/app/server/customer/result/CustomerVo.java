@@ -1,4 +1,4 @@
-package cn.caber.app.server.model.result;
+package cn.caber.app.server.customer.result;
 
 import lombok.Data;
 
@@ -6,7 +6,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-public class PersonVo implements Serializable {
+public class CustomerVo implements Serializable {
+
     private String name;
 
     private Integer age;

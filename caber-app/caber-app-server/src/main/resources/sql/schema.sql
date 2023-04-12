@@ -1,4 +1,4 @@
-CREATE TABLE `caber`.`person`  (
+CREATE TABLE `person`  (
                                      `id` varchar(20) NOT NULL,
                                      `name` varchar(10) NOT NULL DEFAULT '',
                                      `age` int NOT NULL DEFAULT 0,
@@ -11,15 +11,16 @@ CREATE TABLE `caber`.`person`  (
                                      PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `caber`.`account`  (
-                                     `id` varchar(20) NOT NULL,
-                                     `account_number` varchar(20) NOT NULL,
-                                     `password` varchar(50) NOT NULL,
-                                     `name` varchar(20) NOT NULL DEFAULT '',
-                                     `phone_number` varchar(15) NOT NULL DEFAULT '' AFTER `name`,
-                                     `email` varchar(50) NOT NULL DEFAULT '' AFTER `phone_number`,
-                                     `create_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
-                                     `update_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
-                                     `operator_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-                                     PRIMARY KEY (`id`)
-);
+CREATE TABLE `account` (
+                           `id` varchar(20) NOT NULL,
+                           `account_number` varchar(20) NOT NULL,
+                           `password` varchar(50) NOT NULL,
+                           `name` varchar(20) NOT NULL DEFAULT '',
+                           `phone_number` varchar(15) NOT NULL DEFAULT '',
+                           `email` varchar(50) NOT NULL DEFAULT '',
+                           `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                           `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                           `operator_id` varchar(20) NOT NULL,
+                           `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '账户状态： 1-正常，2-注销；',
+                           PRIMARY KEY (`id`)
+)

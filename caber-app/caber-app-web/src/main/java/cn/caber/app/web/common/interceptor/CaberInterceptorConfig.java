@@ -13,6 +13,6 @@ public class CaberInterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/account/**");
+                .excludePathPatterns("/account/signIn", "/account/login", "/account/checkAccount", "/account/resetPassword");
     }
 }

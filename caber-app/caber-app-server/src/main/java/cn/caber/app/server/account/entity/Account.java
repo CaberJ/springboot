@@ -19,6 +19,8 @@ public class Account extends BaseEntity {
     private String phoneNumber;
     @TableField("email")
     private String email;
+    @TableField("status")
+    private Integer status;
 
 
 }

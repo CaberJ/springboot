@@ -4,9 +4,17 @@ import cn.caber.app.server.account.AccountCmd;
 
 public interface AccountService {
 
-    String signIn(AccountCmd cmd);
+    String signup(AccountCmd cmd);
 
     String login(AccountCmd cmd);
 
-    void logout();
+    void logout(String token);
+
+    String checkAccount(AccountCmd cmd);
+
+    void resetPassword(AccountCmd cmd);
+
+    void updatePassword(AccountCmd cmd);
+
+    void closeAccount(AccountCmd cmd);
 }

@@ -1,4 +1,4 @@
-package cn.caber.app.server.customer.entity;
+package cn.caber.app.server.member.entity;
 
 import cn.caber.app.common.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("caber")
-public class Customer extends BaseEntity {
+public class Member extends BaseEntity {
 
 
     private String name;
@@ -20,7 +20,8 @@ public class Customer extends BaseEntity {
 
     private String address;
 
-    private String university;
-    @TableField("graduate_time")
-    private LocalDateTime graduateTime;
+    /**
+     * 个性签名
+     */
+    private String personalizedSignature;
 }

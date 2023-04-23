@@ -1,6 +1,6 @@
-package cn.caber.app.server.customer.service;
+package cn.caber.app.server.account.service;
 
-import cn.caber.app.server.account.AccountCmd;
+import cn.caber.app.server.account.command.AccountCmd;
 
 public interface AccountService {
 

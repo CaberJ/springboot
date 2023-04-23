@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.caber.app.server.customer.mapper.CustomerMapper">
+<mapper namespace="cn.caber.app.server.member.mapper.MemberMapper">
 
-    <select id="getList" resultType="cn.caber.app.server.customer.result.CustomerVo">
+    <select id="getList" resultType="cn.caber.app.server.member.result.MemberVo">
         select * from customer
         <where>
             <if test="qmd.name != null and qmd.name != ''">

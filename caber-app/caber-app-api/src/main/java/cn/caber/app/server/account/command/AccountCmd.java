@@ -1,4 +1,4 @@
-package cn.caber.app.server.account;
+package cn.caber.app.server.account.command;
 
 import lombok.Data;
 import org.springframework.format.annotation.NumberFormat;
@@ -16,9 +16,6 @@ public class AccountCmd implements Serializable {
 
     @NotBlank
     private String password;
-
-    @NotBlank
-    private String name;
 
     @NumberFormat(style = NumberFormat.Style.NUMBER)
     private String phoneNumber;

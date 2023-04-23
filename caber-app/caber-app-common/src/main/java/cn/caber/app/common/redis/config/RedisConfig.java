@@ -1,4 +1,4 @@
-package cn.caber.app.common.config;
+package cn.caber.app.common.redis.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

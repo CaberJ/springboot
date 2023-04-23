@@ -41,7 +41,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         }
         CaberLoginContext.put(LogInConstant.OPERATOR, data.get(LogInConstant.OPERATOR));
         CaberLoginContext.put(LogInConstant.ACCOUNT, data.get(LogInConstant.ACCOUNT));
-        CaberLoginContext.put(LogInConstant.NAME, data.get(LogInConstant.NAME));
+        CaberLoginContext.put(LogInConstant.ID, data.get(LogInConstant.ID));
         return true;
     }
 

@@ -2,8 +2,8 @@ package cn.caber.app.web.controller.account;
 
 import cn.caber.app.common.base.Result;
 import cn.caber.app.common.base.ResultUtil;
-import cn.caber.app.server.account.AccountCmd;
-import cn.caber.app.server.customer.service.AccountService;
+import cn.caber.app.server.account.command.AccountCmd;
+import cn.caber.app.server.account.service.AccountService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

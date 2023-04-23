@@ -1,4 +1,4 @@
-package cn.caber.app.server.customer.command;
+package cn.caber.app.server.member.result;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-public class CustomerCmd implements Serializable {
+public class MemberVo implements Serializable {
 
     private String name;
 
@@ -14,7 +14,6 @@ public class CustomerCmd implements Serializable {
 
     private String address;
 
-    private String university;
+    private String personalizedSignature;
 
-    private LocalDateTime graduateTime;
 }

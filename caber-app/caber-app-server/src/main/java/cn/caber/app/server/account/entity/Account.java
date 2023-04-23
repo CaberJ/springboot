@@ -13,8 +13,6 @@ public class Account extends BaseEntity {
     private String accountNumber;
     @TableField("password")
     private String password;
-    @TableField("name")
-    private String name;
     @TableField("phone_number")
     private String phoneNumber;
     @TableField("email")

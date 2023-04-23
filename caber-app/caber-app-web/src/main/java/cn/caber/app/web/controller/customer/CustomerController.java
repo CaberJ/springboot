@@ -1,9 +1,9 @@
 package cn.caber.app.web.controller.customer;
 
-import cn.caber.app.server.customer.command.CustomerCmd;
-import cn.caber.app.server.customer.command.CustomerPageQmd;
-import cn.caber.app.server.customer.result.CustomerVo;
-import cn.caber.app.server.customer.service.PersonService;
+import cn.caber.app.server.member.command.MemberCmd;
+import cn.caber.app.server.member.command.MemberPageQmd;
+import cn.caber.app.server.member.result.MemberVo;
+import cn.caber.app.server.member.service.MemberService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,16 +18,16 @@ import java.util.List;
 public class CustomerController {
 
     @DubboReference
-    private PersonService personService;
+    private MemberService memberService;
 
     @PostMapping("/getList")
-    List<CustomerVo> getList(@RequestBody CustomerCmd cmd) {
-        return personService.getList(cmd);
+    List<MemberVo> getList(@RequestBody MemberCmd cmd) {
+        return memberService.getList(cmd);
     }
 
     @PostMapping("/page")
-    Page<CustomerVo> page(@RequestBody CustomerPageQmd qmd) {
-        return personService.page(qmd);
+    Page<MemberVo> page(@RequestBody MemberPageQmd qmd) {
+        return memberService.page(qmd);
     }
 
 }

@@ -1,11 +1,11 @@
-package cn.caber.app.server.customer.command;
+package cn.caber.app.server.member.command;
 
 import cn.caber.app.common.base.BasePageQmd;
-import cn.caber.app.server.customer.result.CustomerVo;
+import cn.caber.app.server.member.result.MemberVo;
 
 import java.time.LocalDateTime;
 
-public class CustomerPageQmd extends BasePageQmd<CustomerVo> {
+public class MemberPageQmd extends BasePageQmd<MemberVo> {
 
     private String name;
 

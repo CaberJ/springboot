@@ -46,7 +46,9 @@ public class MyInterceptorAppConfig implements WebMvcConfigurer {
      */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE").allowedOrigins("*")
+    /*    registry.addMapping("/**").allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE").allowedOrigins("*")
+                .allowedHeaders("*").maxAge(36000).allowCredentials(true);*/
+        registry.addMapping("/**").allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE").allowedOriginPatterns("*")
                 .allowedHeaders("*").maxAge(36000).allowCredentials(true);
     }
 

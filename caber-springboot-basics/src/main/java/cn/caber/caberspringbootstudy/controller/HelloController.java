@@ -37,43 +37,43 @@ public class HelloController {
     private HelloService helloService;
 
 
-    @RequestMapping("/getPeople")
-    public String getPeople(){
+    @RequestMapping(value = "/getPeople", method = RequestMethod.GET)
+    public String getPeople() {
 
-        return new People(id,name,age,gid).toString();
+        return new People(id, name, age, gid).toString();
     }
 
-    @RequestMapping("/aa")
-    public String getStudent(){
+    @RequestMapping(value = "/aa", method = RequestMethod.GET)
+    public String getStudent() {
 
         return s.toString();
     }
 
 
-    @RequestMapping(value = "/requestBody",method = RequestMethod.POST)
-    public String requestBody(@RequestBody List<People> peoples){
+    @RequestMapping(value = "/requestBody", method = RequestMethod.POST)
+    public String requestBody(@RequestBody List<People> peoples) {
         for (People people : peoples) {
             System.out.println(people.toString());
         }
         return peoples.toString();
     }
 
-    @RequestMapping(value = "/requestBody2",method = RequestMethod.POST)
-    public String requestBody2(@RequestBody People a){
+    @RequestMapping(value = "/requestBody2", method = RequestMethod.POST)
+    public String requestBody2(@RequestBody People a) {
 
         return a.toString();
     }
 
     @TimeConsumingPrint
     @RequestMapping("/do")
-    public String sayHello(){
+    public String sayHello() {
         String s = helloService.sayHello();
         return s;
     }
 
     @TimeConsumingPrint
     @RequestMapping("/consumeTime")
-    public String consumeTime(){
+    public String consumeTime() {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -83,7 +83,7 @@ public class HelloController {
     }
 
     @RequestMapping("/sleep")
-    public String sleep(){
+    public String sleep() {
         try {
             Thread.sleep(30000);
         } catch (InterruptedException e) {

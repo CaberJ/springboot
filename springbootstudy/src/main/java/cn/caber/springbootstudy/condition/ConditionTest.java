@@ -20,6 +20,11 @@ public class ConditionTest {
 
 
     @Bean("conditionBean")
+    //prefix 数组，获取property名称的前缀，可有可无
+    //name 数组，property完整名称或部分名称，与prefix组合使用组成完整属性名称，与value不可同时存在
+    //value 数组，获取property完整名称或部分名称，与prefix组合使用成完整属性名称，与name不可同时存在
+    //havingValue 比较获取的属性值与havingValue给定的值是否相同，相同才加载配置类
+    //matchIfMissing 缺少property时是否加载，如果为true，没有该property属性也会正常加载，反之报错。
     @ConditionalOnProperty(prefix="conditionTest",name = "condition", havingValue = "on")
     @ConditionalOnMissingBean(ConditionBean.class)
     public ConditionBean getOn(){

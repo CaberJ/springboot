@@ -1,6 +1,5 @@
 package cn.caber.caberspringbootstudy.mq.rabbitmq;
 
-import cn.caber.caberspringbootstudy.mq.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Message;
@@ -9,8 +8,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Objects;
-
 @Component
 @Slf4j
 public class RabbitmqProducer {
@@ -18,7 +15,7 @@ public class RabbitmqProducer {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public boolean send(String queue, Object user) {
+    public boolean send(String routingKey, String exchange, Object user) {
         MessagePostProcessor message = new MessagePostProcessor() {
             /**
              * 设置消息头中的消息
@@ -31,8 +28,9 @@ public class RabbitmqProducer {
                 return message;
             }
         };
-        log.info("send: " + queue + " : " + user);
-        rabbitTemplate.convertAndSend(queue, user, message);
+        log.info("send: " + routingKey + " : " + user);
+//        rabbitTemplate.convertAndSend(queue, user, message);
+        rabbitTemplate.convertAndSend(exchange, routingKey, user, message);
         return true;
     }
 

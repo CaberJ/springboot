@@ -41,12 +41,10 @@ public class MqController {
          return receive;
      }*/
 
-    @PostMapping("/send/{queue}")
-    public void send(@PathVariable("queue") String queue, @RequestBody User user) {
-        rabbitmqProducer.send(queue, user);
+    @PostMapping("/send/{routingKey}/{exchange}")
+    public void send(@PathVariable("routingKey") String routingKey, @PathVariable("exchange") String exchange, @RequestBody User user) {
+        rabbitmqProducer.send(routingKey, exchange, user);
     }
-
-
 
 
 }

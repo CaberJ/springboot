@@ -23,9 +23,9 @@ public class CaberSpringbootStudyApplication /*implements ApplicationRunner */{
 	public static void main(String[] args) {
 		ConfigurableApplicationContext run = SpringApplication.run(CaberSpringbootStudyApplication.class, args);
 		JdbcTemplate jdbcTemplate = run.getBean(JdbcTemplate.class);
-		jdbcTemplate.execute("INSERT INTO `caber`.`person` (`id`, `name`, `age`, `address`) VALUES ('3', 'zhangsan', 12, 'xian')");
-		List<Map<String, Object>> maps = jdbcTemplate.queryForList("select * from  caber.person");
-		System.out.println(maps);
+//		jdbcTemplate.execute("INSERT INTO `caber`.`person` (`id`, `name`, `age`, `address`) VALUES ('3', 'zhangsan', 12, 'xian')");
+//		List<Map<String, Object>> maps = jdbcTemplate.queryForList("select * from  caber.person");
+//		System.out.println(maps);
 	}
 
 

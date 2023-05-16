@@ -1,5 +1,6 @@
 package cn.caber.caberspringbootstudy.mq.activemq.producter;
 
+import cn.caber.caberspringbootstudy.mq.rabbitmq.RabbitmqProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package cn.caber.springboot.test;
+package cn.caber.springboot.ann;
 
 import org.springframework.stereotype.Indexed;
 

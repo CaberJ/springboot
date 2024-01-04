@@ -1,29 +1,11 @@
 package cn.caber.springbootstudy;
 
-import cn.caber.springbootstudy.config.AProperties;
+import cn.caber.springbootstudy.config.Bproperties;
 import cn.caber.springbootstudy.config.ParentProperties;
-import cn.caber.springbootstudy.env.TestConfig;
-import cn.caber.springbootstudy.jdkspi.Publish;
-import cn.caber.springbootstudy.util.CompileUtils;
-import cn.caber.springbootstudy.util.ControllerUtils;
-import cn.caber.springbootstudy.util.FreeMarkerUtils;
 import cn.caber.springbootstudy.util.SpringUtil;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.EnvironmentAware;
-import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.PropertySource;
-
-import java.lang.annotation.Annotation;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ServiceLoader;
 
 @SpringBootApplication
 public class SpringbootstudyApplication {
@@ -65,6 +47,8 @@ public class SpringbootstudyApplication {
         ParentProperties bean = (ParentProperties) SpringUtil.getBeanByName("parentProperties");
         System.out.println(bean);
 
+        Bproperties beanByClass = (Bproperties) SpringUtil.getBeanByClass(Bproperties.class);
+        System.out.println(beanByClass);
 
 
     }

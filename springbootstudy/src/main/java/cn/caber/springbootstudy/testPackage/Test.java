@@ -14,7 +14,7 @@ import java.util.HashMap;
  * @Author: zhaikaibo
  * @Date: 2019/6/25 16:14
  */
-@Component()
+@Component
 public class Test implements BeanFactoryPostProcessor {
 
     @Override

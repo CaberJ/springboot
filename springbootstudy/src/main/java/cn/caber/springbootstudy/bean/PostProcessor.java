@@ -17,6 +17,9 @@ public class PostProcessor implements BeanPostProcessor {
     }
 
     public Object postProcessAfterInitialization(Object o, String s) throws BeansException {
+        if("initHandle".equals(s)){
+            System.out.println("initHandle bean 初始化后执行。。。");
+        }
         System.out.println("每个bean初始化后执行afterInitialization "+o+" beanName="+s);
         return o;
     }

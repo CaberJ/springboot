@@ -20,6 +20,20 @@ import javax.annotation.PostConstruct;
 public class InitHandle implements InitializingBean/*, ApplicationContextAware*/ {
 //    ApplicationContext applicationContext;
 
+
+    private People people;
+
+    @Autowired
+    public void setPeople(People people) {
+        System.out.println("InitHandle 依赖注入 people");
+        this.people = people;
+    }
+
+    @PostConstruct
+    public void testPostConstruct(){
+        System.out.println("InitHandle 的 PostConstruct执行了");
+    }
+
     public void afterPropertiesSet() throws Exception {
         System.out.println("InitHandle 的 afterPropertiesSet执行了");
     }
@@ -41,4 +55,8 @@ public class InitHandle implements InitializingBean/*, ApplicationContextAware*/
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext=applicationContext;
     }*/
+
+    public void testAop(){
+        System.out.println("aop test");
+    }
 }
